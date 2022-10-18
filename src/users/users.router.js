@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const passport = require('passport')
+const adminValidate=require('../middlewares/role.middleware')
 
 const userServices = require('./users.services')
 
@@ -38,10 +39,15 @@ router.route('/me')
 
 //? /api/v1/users/:id
 router.route('/:id')
-    .get(userServices.getUserById)
-    .patch(userServices.patchUser)
-    .delete(userServices.deleteUser)
-
-
+    .get(       
+        userServices.getUserById)
+    .patch(
+        passport.authenticate('jwt', {session: false}) ,  
+        adminValidate,      
+        userServices.patchUser)
+    .delete(
+        adminValidate,
+        passport.authenticate('jwt', {session: false}) ,                
+        userServices.deleteUser)
 
 module.exports = router
