@@ -31,5 +31,40 @@ get localhost:9000/api/v1/users
 post localhost:9000/api/v1/auth/login
 get localhost:9000/api/v1/users/me
 
+#Blog API
+- Front:
+    - Obtener todas las publicaciones
+    - Obtener una en especifico
+    - Obtener todas las categorias
+    - Obtener todos los post de una categoria en especifico
+    - Obtener todos los posts que he creado
+    - Obtener todos los posts de un usuario en especifico
+    - Paginar los posts
+    - Acciones de CRUD sobre Posts
+    - Crear categofias
+
+
+- JSON:
+    {
+        "total": 68,    
+        "prev": "localhost:9000/api/v1/posts?start=51&limit=60",
+        "next": "localhost:9000/api/v1/posts?start=61&limit=68",
+        "data":[
+            {
+                "id":"1",
+                "title":"ejemplo,
+                "constent":"lorem ipsum",
+                "createdBy":{
+                    "id": 18,
+                    "name"::David",
+                    "email":"david@david.com",
+                },
+                "category:{
+                    "id":4,
+                    "name":"Tecnologia"
+                }
+            }
+        ]
+    }
 
 
