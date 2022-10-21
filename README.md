@@ -68,3 +68,19 @@ get localhost:9000/api/v1/users/me
     }
 
 
+/api/v1
+
+/users
+    - /me
+    - /me/posts
+    - /me/posts/:id
+    - /:id
+    
+
+/categories
+    - /:id
+    - /:id/posts
+
+/posts
+    - /:id
+
